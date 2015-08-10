@@ -1,6 +1,6 @@
 var lock = false;
-(function($){
-    $.fn.droptxt = function(url, field){
+(function ($) {
+    $.fn.droptxt = function (url, field) {
         var selector = this.selector;
         this.attr('autocomplete', 'Off');
         var txt = this;
@@ -13,7 +13,7 @@ var lock = false;
             $.getJSON(url, args, function (data) {
                 var html = '<div class="codecomb-droptxt-outer" data-parent="' + selector + '">';
                 for (var i = 0; i < data.length; i++) {
-                    html += '<div class="codecomb-droptxt-item" onclick="$(\'' + selector + '\').val($(this).text()); $(\'.codecomb-droptxt-outer\').remove()">' + data[i] + '</div>'
+                    html += '<div class="codecomb-droptxt-item" onclick="$(\'' + selector + '\').val(\''+ data[i].Value +'\'); $(\'.codecomb-droptxt-outer\').remove()">' + data[i].Display + '</div>'
                 }
                 html += '</div>';
                 var dom = $(html);
